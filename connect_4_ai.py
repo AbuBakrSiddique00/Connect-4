@@ -164,19 +164,6 @@ def scoring_position(board, piece):
 
 
 
-# Pygame board
-def draw_board(board):
-    for c in range(COLUMN_COUNT):
-        for r in  range(ROW_COUNT):
-            pygame.draw.rect(screen, BOARD_COLOR, (c * SQUARE, r * SQUARE + SQUARE, SQUARE, SQUARE))
-            if board[r][c] == 0:
-                pygame.draw.circle(screen, WHITE, (int((c * SQUARE + SQUARE / 2)), (int(r * SQUARE + SQUARE + SQUARE / 2))), RADIUS )
-            elif board[r][c] == PLAYER_NUMBER:
-                pygame.draw.circle(screen, YELLOW, (int((c * SQUARE + SQUARE / 2)), (int(r * SQUARE + SQUARE + SQUARE / 2))), RADIUS )
-            else:
-                pygame.draw.circle(screen, RED, (int((c * SQUARE + SQUARE / 2)), (int(r * SQUARE + SQUARE + SQUARE / 2))), RADIUS)
-    pygame.display.update()
-
 
 # Terminal Node
 def is_terminal_node(board):
@@ -232,6 +219,22 @@ board = create_board()
 game_over = False
 # turn = random.randint(0, 1)
 turn = 1
+
+
+
+# Pygame board
+def draw_board(board):
+    for c in range(COLUMN_COUNT):
+        for r in  range(ROW_COUNT):
+            pygame.draw.rect(screen, BOARD_COLOR, (c * SQUARE, r * SQUARE + SQUARE, SQUARE, SQUARE))
+            if board[r][c] == 0:
+                pygame.draw.circle(screen, WHITE, (int((c * SQUARE + SQUARE / 2)), (int(r * SQUARE + SQUARE + SQUARE / 2))), RADIUS )
+            elif board[r][c] == PLAYER_NUMBER:
+                pygame.draw.circle(screen, YELLOW, (int((c * SQUARE + SQUARE / 2)), (int(r * SQUARE + SQUARE + SQUARE / 2))), RADIUS )
+            else:
+                pygame.draw.circle(screen, RED, (int((c * SQUARE + SQUARE / 2)), (int(r * SQUARE + SQUARE + SQUARE / 2))), RADIUS)
+    pygame.display.update()
+
 
 pygame.init()
 SQUARE = 100
