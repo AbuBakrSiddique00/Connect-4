@@ -46,7 +46,7 @@ export default function App() {
 
       // AI move
       const aiRes = await aiMove(moveRes.board, 5)
-      setBoard(aiRes.board)
+      setBoard(aiRes.board) 
       if (aiRes.game_over) {
         setGameOver(true)
         setWinner(aiRes.winner)
